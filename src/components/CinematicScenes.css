@@ -1,0 +1,973 @@
+
+/* =========================================
+   MAUXIS CINEMATIC SCENES
+   Brand Theme: Charcoal + Cream + Red
+========================================= */
+
+.cinematic-scenes {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #25211f;
+  color: #f8f3e9;
+}
+
+.cinematic-scenes-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================================
+   SERVICE SCENES
+========================================= */
+
+.cinematic-service {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 5vw;
+
+  width: 100%;
+  height: 100%;
+  padding: 8vh 9vw;
+
+  perspective: 1200px;
+  visibility: hidden;
+}
+
+/* =========================================
+   LEFT CONTENT
+========================================= */
+
+.service-copy {
+  position: relative;
+  z-index: 3;
+  max-width: 560px;
+}
+
+.service-number {
+  display: inline-block;
+  margin-bottom: 30px;
+
+  color: #e58b7e;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.service-eyebrow {
+  margin: 0 0 18px;
+
+  color: rgba(248, 243, 233, 0.55);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.service-heading {
+  margin: 0;
+
+  color: #f8f3e9;
+  font-size: clamp(48px, 6.2vw, 92px);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -5px;
+}
+
+.service-subtitle {
+  margin: 26px 0 0;
+
+  color: #e58b7e;
+  font-size: clamp(18px, 2vw, 25px);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.service-description {
+  max-width: 420px;
+  margin: 18px 0 0;
+
+  color: rgba(248, 243, 233, 0.75);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.service-bottom-line {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 42px;
+}
+
+.service-bottom-line span {
+  width: 42px;
+  height: 2px;
+  background: #b33b30;
+}
+
+.service-bottom-line small {
+  color: rgba(248, 243, 233, 0.55);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* =========================================
+   RIGHT VISUAL AREA
+========================================= */
+
+.service-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  perspective: 1200px;
+}
+
+.visual-card {
+  position: relative;
+
+  width: min(100%, 540px);
+  min-height: 340px;
+  padding: 28px;
+
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 22px;
+
+  background: #fdfcf9;
+  color: #25211f;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.28),
+    0 5px 20px rgba(0, 0, 0, 0.08);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  transform-style: preserve-3d;
+}
+
+.visual-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: #3b332f;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.visual-status {
+  padding: 7px 12px;
+  border-radius: 30px;
+
+  background: rgba(179, 59, 48, 0.09);
+  color: #b33b30;
+
+  font-size: 10px;
+}
+
+/* =========================================
+   ANALYTICS HUB
+========================================= */
+
+.analytics-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.metric-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  padding: 18px;
+  border-radius: 14px;
+  background: #f5f3f0;
+}
+
+.metric-box small,
+.ads-main-metric small,
+.crm-total small {
+  color: #8c8078;
+  font-size: 11px;
+}
+
+.metric-box strong {
+  color: #29221e;
+  font-size: 25px;
+}
+
+.metric-box span {
+  color: #398d66;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.chart-area {
+  position: relative;
+  height: 135px;
+  margin-top: 22px;
+}
+
+.chart-lines {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chart-lines span {
+  width: 100%;
+  height: 1px;
+  background: rgba(70, 55, 45, 0.08);
+}
+
+.chart-area svg {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.chart-line {
+  fill: none;
+  stroke: #b33b30;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.chart-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+
+  color: #a69a91;
+  font-size: 9px;
+}
+
+/* =========================================
+   AI STUDIO
+========================================= */
+
+.ai-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ai-symbol {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+
+  border-radius: 13px;
+  background: #b33b30;
+  color: white;
+  font-size: 25px;
+}
+
+.ai-heading div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ai-heading small {
+  color: #9b8273;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+.ai-heading strong {
+  color: #302723;
+  font-size: 15px;
+}
+
+.ai-online {
+  color: #398d66;
+  font-size: 11px;
+}
+
+.ai-message {
+  display: flex;
+  gap: 12px;
+  margin-top: 27px;
+  padding: 18px;
+
+  border-radius: 14px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.ai-user {
+  margin-left: 50px;
+  background: rgba(179, 59, 48, 0.08);
+  color: #55413a;
+}
+
+.ai-response {
+  background: #f5f3f0;
+}
+
+.ai-response-icon {
+  color: #b33b30;
+  font-size: 20px;
+}
+
+.ai-response strong {
+  color: #302723;
+}
+
+.ai-response p {
+  margin: 7px 0 0;
+  color: #81736a;
+}
+
+.ai-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 28px;
+  padding: 12px 14px;
+
+  border: 1px solid rgba(90, 65, 50, 0.12);
+  border-radius: 12px;
+
+  color: #a99b91;
+  font-size: 11px;
+}
+
+.ai-send {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+
+  border-radius: 9px;
+  background: #b33b30;
+  color: white;
+  font-size: 17px;
+}
+
+/* =========================================
+   SOCIAL HUB
+========================================= */
+
+.social-platforms {
+  display: flex;
+  gap: 13px;
+  margin: 28px 0;
+}
+
+.social-platform {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  place-items: center;
+
+  border-radius: 13px;
+  background: #f5f3f0;
+
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.instagram { color: #bd536e; }
+.facebook { color: #3569b8; }
+.linkedin { color: #2775a7; }
+.youtube { color: #c83c30; }
+
+.social-post {
+  padding: 17px;
+  border-radius: 15px;
+  background: #f5f3f0;
+}
+
+.social-post-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-avatar {
+  display: grid;
+  width: 35px;
+  height: 35px;
+  place-items: center;
+
+  border-radius: 50%;
+  background: #b33b30;
+  color: white;
+  font-weight: 700;
+}
+
+.social-post-head div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.social-post-head strong {
+  font-size: 12px;
+}
+
+.social-post-head small {
+  color: #9a8b80;
+  font-size: 10px;
+}
+
+.social-check {
+  color: #398d66;
+  font-size: 18px;
+}
+
+.social-post-content {
+  margin-top: 17px;
+  color: #6f6259;
+  font-size: 11px;
+}
+
+.social-post-art {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-height: 110px;
+  margin-top: 12px;
+  padding: 18px;
+
+  border-radius: 11px;
+  background: linear-gradient(120deg, #30231f, #8e3029);
+  color: #fff4e9;
+}
+
+.social-post-art span {
+  font-size: 12px;
+  letter-spacing: 5px;
+}
+
+.social-post-art strong {
+  font-size: 28px;
+}
+
+.social-post-footer {
+  display: flex;
+  gap: 22px;
+  margin-top: 13px;
+
+  color: #9a8b80;
+  font-size: 10px;
+}
+
+/* =========================================
+   CREATOR HUB
+========================================= */
+
+.creator-profiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.creator-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 17px 7px;
+  border-radius: 14px;
+  background: #f5f3f0;
+  text-align: center;
+}
+
+.creator-avatar {
+  display: grid;
+  width: 62px;
+  height: 62px;
+  place-items: center;
+
+  margin-bottom: 14px;
+  border: 3px solid rgba(179, 59, 48, 0.14);
+  border-radius: 50%;
+
+  background: linear-gradient(145deg, #d9a58e, #8e5142);
+  color: white;
+
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.creator-profile:nth-child(2) .creator-avatar {
+  background: linear-gradient(145deg, #d7b6a1, #a56e70);
+}
+
+.creator-profile:nth-child(3) .creator-avatar {
+  background: linear-gradient(145deg, #9b9b8b, #4d5a55);
+}
+
+.creator-profile strong {
+  color: #3b302a;
+  font-size: 11px;
+}
+
+.creator-profile small {
+  margin-top: 5px;
+  color: #8f8077;
+  font-size: 9px;
+}
+
+.creator-profile > span {
+  margin-top: 13px;
+  color: #b33b30;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.creator-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 23px;
+  padding-top: 18px;
+
+  border-top: 1px solid rgba(60, 40, 30, 0.1);
+  color: #8f8077;
+  font-size: 11px;
+}
+
+.creator-bottom strong {
+  color: #b33b30;
+}
+
+/* =========================================
+   ADS MANAGER
+========================================= */
+
+.ads-main-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.ads-main-metric strong {
+  color: #29221e;
+  font-size: 46px;
+  letter-spacing: -2px;
+}
+
+.ads-main-metric span {
+  color: #398d66;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.ads-bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+
+  height: 100px;
+  margin-top: 25px;
+  padding: 0 10px;
+
+  border-bottom: 1px solid rgba(50, 35, 25, 0.1);
+}
+
+.ads-bar-wrap {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+}
+
+.ads-bar {
+  width: 100%;
+  min-height: 10px;
+
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(180deg, #d77a68, #b33b30);
+}
+
+.ads-footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.ads-footer div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.ads-footer small {
+  color: #96877d;
+  font-size: 10px;
+}
+
+.ads-footer strong {
+  color: #302723;
+  font-size: 15px;
+}
+
+/* =========================================
+   CRM HUB
+========================================= */
+
+.crm-total {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 28px;
+}
+
+.crm-total div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.crm-total strong {
+  color: #29221e;
+  font-size: 35px;
+}
+
+.crm-total > span {
+  color: #398d66;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.crm-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.crm-contact {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px;
+  border-radius: 12px;
+  background: #f5f3f0;
+}
+
+.crm-avatar {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+
+  border-radius: 50%;
+  background: #e9c5b8;
+  color: #814439;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.crm-contact div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.crm-contact strong {
+  color: #41352e;
+  font-size: 11px;
+}
+
+.crm-contact small {
+  color: #9a8b80;
+  font-size: 9px;
+}
+
+.crm-tag {
+  padding: 6px 9px;
+  border-radius: 20px;
+
+  background: rgba(179, 59, 48, 0.08);
+  color: #b33b30;
+
+  font-size: 9px;
+}
+
+/* =========================================
+   TABLET RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+  .cinematic-service {
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 3vw;
+    padding: 7vh 5vw;
+  }
+
+  .service-heading {
+    font-size: clamp(42px, 6vw, 68px);
+    letter-spacing: -3px;
+  }
+
+  .visual-card {
+    padding: 22px;
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+  .cinematic-scenes {
+    height: 100svh;
+    min-height: 680px;
+  }
+
+  .cinematic-service {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+
+    align-content: center;
+    justify-items: center;
+
+    gap: 24px;
+    padding: 45px 22px;
+    overflow-y: auto;
+  }
+
+  .service-copy {
+    width: 100%;
+    max-width: 520px;
+  }
+
+  .service-number {
+    margin-bottom: 18px;
+  }
+
+  .service-eyebrow {
+    margin-bottom: 12px;
+    font-size: 9px;
+  }
+
+  .service-heading {
+    font-size: clamp(42px, 11vw, 65px);
+    letter-spacing: -2px;
+  }
+
+  .service-subtitle {
+    margin-top: 15px;
+    font-size: 18px;
+  }
+
+  .service-description {
+    margin-top: 10px;
+    font-size: 13px;
+  }
+
+  .service-bottom-line {
+    margin-top: 20px;
+  }
+
+  .service-visual {
+    width: 100%;
+  }
+
+  .visual-card {
+    width: 100%;
+    min-height: auto;
+    padding: 19px;
+    border-radius: 17px;
+  }
+
+  .metric-box strong {
+    font-size: 20px;
+  }
+
+  .creator-avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .creator-profile {
+    padding: 12px 5px;
+  }
+
+  .creator-profile strong {
+    font-size: 9px;
+  }
+
+  .creator-profile small,
+  .creator-profile > span {
+    font-size: 8px;
+  }
+
+  .ai-message {
+    margin-top: 16px;
+    padding: 13px;
+    font-size: 11px;
+  }
+
+  .social-post-art {
+    min-height: 85px;
+  }
+
+  .social-post-art strong {
+    font-size: 23px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .cinematic-service {
+    padding: 38px 16px;
+    gap: 18px;
+  }
+
+  .service-heading {
+    font-size: 39px;
+  }
+
+  .visual-card {
+    padding: 15px;
+  }
+
+  .analytics-metrics {
+    gap: 8px;
+  }
+
+  .metric-box {
+    padding: 12px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-scenes,
+  .cinematic-service,
+  .visual-card {
+    scroll-behavior: auto;
+  }
+}
+
+/* =====================================
+   MAUXIS CREAM BRAND THEME
+===================================== */
+
+.cinematic-scenes {
+  background: #F8F3E9 !important;
+  color: #25211F;
+}
+
+.cinematic-service {
+  color: #25211F;
+}
+
+.service-heading {
+  color: #25211F;
+}
+
+.service-eyebrow {
+  color: #80746A;
+}
+
+.service-number {
+  color: #B33B30;
+}
+
+.service-subtitle {
+  color: #B33B30;
+}
+
+.service-description {
+  color: #655D55;
+}
+
+.service-bottom-line small {
+  color: #80746A;
+}
+
+.service-bottom-line span {
+  background: #B33B30;
+}
+
+/* Service cards */
+.visual-card {
+  background: #FFFEFC;
+  color: #25211F;
+
+  border: 1px solid rgba(37, 33, 31, 0.08);
+
+  box-shadow:
+    0 20px 60px rgba(67, 48, 37, 0.10),
+    0 5px 18px rgba(67, 48, 37, 0.05);
+}
+
+/* Keep visual card text dark */
+.visual-topbar,
+.metric-box strong,
+.ai-heading strong,
+.social-post-head strong,
+.creator-profile strong,
+.ads-main-metric strong,
+.crm-contact strong {
+  color: #25211F;
+}
+
+/* Brand accent */
+.visual-status,
+.ai-symbol,
+.ai-send,
+.social-avatar {
+  background-color: #B33B30;
+}
+
+/* Warm light card surfaces */
+.metric-box,
+.social-platform,
+.social-post,
+.creator-profile,
+.crm-contact {
+  background: #F5F0E7;
+}
+
+/* Remove old blue backgrounds */
+.scene-background,
+.background-glow {
+  background-color: transparent;
+}

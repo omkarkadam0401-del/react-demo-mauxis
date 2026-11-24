@@ -1,0 +1,22 @@
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-yellow: #f5c542;
+  --color-dark: #222222;
+  --font-satoshi: 'Satoshi';
+}
+
+body {
+  margin: 0;
+  background: #f8f5ef;
+  color: #222222;
+  font-family: var(--font-satoshi), sans-serif;
+}
+
+.hero-button {
+  background: #f5c542;
+  color: #222222;
+}

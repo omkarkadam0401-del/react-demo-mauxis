@@ -1,0 +1,112 @@
+
+.mauxis-light-effect {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  isolation: isolate;
+
+  background: #F8F3E9;
+}
+
+/* Warm cream light */
+.ambient-light {
+  position: absolute;
+  width: 75vw;
+  height: 75vw;
+  max-width: 1000px;
+  max-height: 1000px;
+  top: -35%;
+  left: 10%;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.45) 35%,
+    transparent 70%
+  );
+
+  filter: blur(65px);
+}
+
+/* Soft red brand lighting */
+.red-ambient {
+  position: absolute;
+  width: 65vw;
+  height: 65vw;
+  right: -20%;
+  bottom: -40%;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(179, 59, 48, 0.13) 0%,
+    rgba(179, 59, 48, 0.05) 42%,
+    transparent 72%
+  );
+
+  filter: blur(75px);
+}
+
+/* Subtle diagonal light */
+.diagonal-light-lines {
+  position: absolute;
+  inset: -20%;
+  opacity: 0.18;
+
+  background: linear-gradient(
+    55deg,
+    transparent 49.9%,
+    rgba(179, 59, 48, 0.18) 50%,
+    transparent 50.1%
+  );
+}
+
+/* Secondary light reflection */
+.secondary-light-lines {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+
+  background: linear-gradient(
+    125deg,
+    transparent 48.9%,
+    rgba(37, 33, 31, 0.12) 49%,
+    transparent 49.12%
+  );
+}
+
+/* Soft edge lighting */
+.background-vignette {
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    ellipse at center,
+    transparent 50%,
+    rgba(179, 59, 48, 0.035) 100%
+  );
+}
+
+/* Fine texture */
+.background-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.025;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+@media (max-width: 768px) {
+  .ambient-light {
+    width: 120vw;
+    height: 120vw;
+  }
+
+  .red-ambient {
+    width: 100vw;
+    height: 100vw;
+  }
+}
