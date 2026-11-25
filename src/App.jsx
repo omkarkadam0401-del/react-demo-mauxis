@@ -1,12 +1,7 @@
 
-import {
-  useState,
-  useEffect,
-  useRef,
-  useCallback,
-} from 'react';
-
+import { useEffect, useRef, useState, useCallback } from 'react';
 import gsap from 'gsap';
+
 import './App.css';
 
 import mauxisLogo from './assets/logo/mauxis-logo.png.png';
@@ -21,164 +16,240 @@ function App() {
 
   // INTRO ANIMATION
   useEffect(() => {
-    const introElement = introRef.current;
+    const intro = introRef.current;
 
-    if (!introElement) return;
+    if (!intro) return;
 
-    const intro = gsap.timeline({
+    const logo = intro.querySelector('.intro-logo');
+    const title = intro.querySelector('.intro-title');
+    const subtitle = intro.querySelector('.intro-subtitle');
+    const line = intro.querySelector('.intro-line');
+
+    const timeline = gsap.timeline({
       onComplete: () => {
         setStartServices(true);
       },
     });
 
-    intro
-      .fromTo(
-        '.intro-label',
-        {
-          y: 30,
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.3,
-          ease: 'power3.out',
-        }
-      )
-      .fromTo(
-        '.intro-title',
-        {
-          y: 90,
-          scale: 0.85,
-          opacity: 0,
-        },
-        {
-          y: 0,
-          scale: 1,
-          opacity: 1,
-          duration: 0.55,
-          ease: 'power4.out',
-        },
-        '-=0.1'
-      )
-      .to({}, { duration: 0.6 })
-      .to(introElement, {
+    timeline.fromTo(
+      line,
+      {
+        scaleX: 0,
+        transformOrigin: 'left center',
+        opacity: 0,
+      },
+      {
+        scaleX: 1,
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power3.out',
+      }
+    );
+
+    timeline.fromTo(
+      logo,
+      {
+        opacity: 0,
+        scale: 0.7,
+        filter: 'blur(20px)',
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        filter: 'blur(0px)',
+        duration: 0.8,
+        ease: 'power4.out',
+      },
+      '-=0.2'
+    );
+
+    timeline.fromTo(
+      title,
+      {
+        opacity: 0,
+        y: 35,
+        filter: 'blur(15px)',
+      },
+      {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 0.7,
+        ease: 'power3.out',
+      },
+      '-=0.35'
+    );
+
+    timeline.fromTo(
+      subtitle,
+      {
+        opacity: 0,
+        y: 20,
+        filter: 'blur(10px)',
+      },
+      {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 0.6,
+        ease: 'power3.out',
+      },
+      '-=0.3'
+    );
+
+    timeline.to(
+      intro,
+      {
         opacity: 0,
         scale: 1.04,
-        duration: 0.4,
-        ease: 'power2.inOut',
-        onComplete: () => {
-          introElement.style.display = 'none';
-        },
-      });
+        filter: 'blur(12px)',
+        duration: 0.55,
+        ease: 'power2.in',
+      },
+      '+=0.5'
+    );
 
     return () => {
-      intro.kill();
+      timeline.kill();
     };
   }, []);
 
-  // SERVICES COMPLETE
+  // CALLED AFTER ALL CINEMATIC SERVICE SCENES
   const handleServicesComplete = useCallback(() => {
     setShowEnding(true);
   }, []);
 
-  // FINAL SCREEN ANIMATION
+  // FINAL LOGO / ENDING ANIMATION
   useEffect(() => {
     if (!showEnding || !endingRef.current) return;
 
-    const ending = gsap.timeline();
+    const ending = endingRef.current;
 
-    ending
-      .fromTo(
-        '.ending-line',
-        {
-          scaleX: 0,
-          opacity: 0,
-        },
-        {
-          scaleX: 1,
-          opacity: 1,
-          duration: 0.6,
-          ease: 'power3.out',
-        }
-      )
-      .fromTo(
-        '.ending-logo',
-        {
-          y: 45,
-          opacity: 0,
-          scale: 0.85,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 0.7,
-          ease: 'power4.out',
-        },
-        '-=0.2'
-      )
-      .fromTo(
-        '.ending-tagline',
-        {
-          y: 25,
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.5,
-          ease: 'power3.out',
-        },
-        '-=0.3'
-      )
-      .fromTo(
-        '.ending-footer',
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-          duration: 0.5,
-        },
-        '-=0.2'
-      );
+    const line = ending.querySelector('.ending-line');
+    const logo = ending.querySelector('.ending-logo');
+    const tagline = ending.querySelector('.ending-tagline');
+    const description = ending.querySelector('.ending-description');
+    const footer = ending.querySelector('.ending-footer');
+
+    const timeline = gsap.timeline();
+
+    timeline.fromTo(
+      line,
+      {
+        scaleX: 0,
+        opacity: 0,
+        transformOrigin: 'center',
+      },
+      {
+        scaleX: 1,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power3.out',
+      }
+    );
+
+    timeline.fromTo(
+      logo,
+      {
+        opacity: 0,
+        scale: 0.65,
+        filter: 'blur(25px)',
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        filter: 'blur(0px)',
+        duration: 1.1,
+        ease: 'power4.out',
+      },
+      '-=0.3'
+    );
+
+    timeline.fromTo(
+      tagline,
+      {
+        opacity: 0,
+        y: 25,
+        filter: 'blur(12px)',
+      },
+      {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 0.7,
+        ease: 'power3.out',
+      },
+      '-=0.5'
+    );
+
+    timeline.fromTo(
+      description,
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power3.out',
+      },
+      '-=0.3'
+    );
+
+    timeline.fromTo(
+      footer,
+      {
+        opacity: 0,
+        y: 15,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: 'power2.out',
+      },
+      '-=0.2'
+    );
 
     return () => {
-      ending.kill();
+      timeline.kill();
     };
   }, [showEnding]);
 
   return (
-    <main className="app-shell">
+    <main className="mauxis-app">
 
-      {/* INTRO SCREEN */}
-      <section
-        className="intro-screen"
-        ref={introRef}
-      >
+      {/* INTRO SECTION */}
+      <section className="intro-screen" ref={introRef}>
         <div className="intro-content">
-          <p className="intro-label">
-            INTRODUCING
-          </p>
+
+          <div className="intro-line" />
+
+          <img
+            src={mauxisLogo}
+            alt="Mauxis Logo"
+            className="intro-logo"
+          />
 
           <h1 className="intro-title">
-            M-AUXIS<span>.</span>
+            INTRODUCING MAUXIS
           </h1>
-        </div>
 
-        <p className="intro-bottom">
-          THE FUTURE OF DIGITAL GROWTH
-        </p>
+          <p className="intro-subtitle">
+            A smarter way to move your business forward.
+          </p>
+
+        </div>
       </section>
 
-      {/* CINEMATIC SERVICES */}
+      {/* SIX CINEMATIC SERVICE SCENES */}
       <CinematicScenes
         start={startServices}
         onComplete={handleServicesComplete}
       />
 
-      {/* FINAL SCREEN */}
+      {/* FINAL BRAND ENDING */}
       {showEnding && (
         <section
           className="ending-screen"
@@ -190,21 +261,22 @@ function App() {
 
             <img
               src={mauxisLogo}
-              alt="M-Auxis Logo"
+              alt="Mauxis"
               className="ending-logo"
             />
 
-            <h1 className="ending-tagline">
-              BUILD. GROW. <span>DOMINATE.</span>
-            </h1>
+            <h2 className="ending-tagline">
+              BUILD. GROW. DOMINATE.
+            </h2>
 
             <p className="ending-description">
-              Your entire digital growth engine.
+              Transform your ideas into meaningful digital experiences.
+              Build smarter, grow faster and move forward with Mauxis.
             </p>
 
             <div className="ending-footer">
-              <span>M-AUXIS</span>
-              <span>CREATING WHAT'S NEXT</span>
+              <span>MAUXIS DIGITAL ECOSYSTEM</span>
+              <span>THINK BEYOND. MOVE FORWARD.</span>
             </div>
 
           </div>

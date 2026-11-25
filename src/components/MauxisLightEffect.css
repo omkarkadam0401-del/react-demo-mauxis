@@ -2,111 +2,170 @@
 .mauxis-light-effect {
   position: absolute;
   inset: 0;
-  z-index: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   pointer-events: none;
+  z-index: 0;
   isolation: isolate;
-
-  background: #F8F3E9;
 }
 
-/* Warm cream light */
 .ambient-light {
   position: absolute;
+  width: 85vw;
+  height: 85vw;
+  max-width: 1100px;
+  max-height: 1100px;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  opacity: 0.65;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 250, 239, 0.9) 20%,
+    rgba(248, 243, 233, 0.55) 45%,
+    transparent 75%
+  );
+  filter: blur(55px);
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+}
+
+.card-ambient-light {
+  position: absolute;
   width: 75vw;
-  height: 75vw;
-  max-width: 1000px;
-  max-height: 1000px;
-  top: -35%;
-  left: 10%;
-  border-radius: 50%;
-
+  height: 55vw;
+  top: 55%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
   background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(255, 255, 255, 0.45) 35%,
-    transparent 70%
+    ellipse,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 250, 240, 0.7) 35%,
+    transparent 75%
   );
-
-  filter: blur(65px);
-}
-
-/* Soft red brand lighting */
-.red-ambient {
-  position: absolute;
-  width: 65vw;
-  height: 65vw;
-  right: -20%;
-  bottom: -40%;
-  border-radius: 50%;
-
-  background: radial-gradient(
-    circle,
-    rgba(179, 59, 48, 0.13) 0%,
-    rgba(179, 59, 48, 0.05) 42%,
-    transparent 72%
-  );
-
   filter: blur(75px);
+  will-change: transform, opacity;
 }
 
-/* Subtle diagonal light */
-.diagonal-light-lines {
-  position: absolute;
-  inset: -20%;
-  opacity: 0.18;
-
-  background: linear-gradient(
-    55deg,
-    transparent 49.9%,
-    rgba(179, 59, 48, 0.18) 50%,
-    transparent 50.1%
-  );
-}
-
-/* Secondary light reflection */
-.secondary-light-lines {
+.light-streaks {
   position: absolute;
   inset: 0;
-  opacity: 0.12;
-
-  background: linear-gradient(
-    125deg,
-    transparent 48.9%,
-    rgba(37, 33, 31, 0.12) 49%,
-    transparent 49.12%
-  );
+  overflow: hidden;
 }
 
-/* Soft edge lighting */
-.background-vignette {
+.light-streak {
+  position: absolute;
+  left: 0;
+  width: 75vw;
+  height: 3px;
+  opacity: 0;
+  border-radius: 50%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 15%,
+    rgba(255, 255, 255, 0.95) 42%,
+    #fff 50%,
+    rgba(255, 255, 255, 0.9) 56%,
+    rgba(255, 255, 255, 0.2) 82%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 12px rgba(255, 255, 255, 1),
+    0 0 30px rgba(255, 255, 255, 0.9),
+    0 0 65px rgba(255, 255, 255, 0.75),
+    0 0 110px rgba(248, 243, 233, 0.8);
+  filter: blur(1.2px);
+  will-change: transform, opacity;
+}
+
+.streak-one {
+  top: 30%;
+}
+
+.streak-two {
+  top: 50%;
+  width: 90vw;
+  height: 2px;
+}
+
+.streak-three {
+  top: 70%;
+  width: 60vw;
+  height: 4px;
+}
+
+.light-particles {
   position: absolute;
   inset: 0;
+}
 
+.light-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    0 0 10px #fff,
+    0 0 25px rgba(255, 255, 255, 0.9);
+  opacity: 0.5;
+}
+
+.particle-one {
+  top: 24%;
+  left: 18%;
+}
+
+.particle-two {
+  top: 68%;
+  left: 78%;
+}
+
+.particle-three {
+  top: 42%;
+  left: 88%;
+}
+
+.particle-four {
+  top: 78%;
+  left: 32%;
+}
+
+.light-vignette {
+  position: absolute;
+  inset: 0;
   background: radial-gradient(
     ellipse at center,
-    transparent 50%,
-    rgba(179, 59, 48, 0.035) 100%
+    transparent 35%,
+    rgba(37, 33, 31, 0.025) 100%
   );
-}
-
-/* Fine texture */
-.background-grain {
-  position: absolute;
-  inset: 0;
-  opacity: 0.025;
-
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
 }
 
 @media (max-width: 768px) {
   .ambient-light {
-    width: 120vw;
-    height: 120vw;
+    width: 110vw;
+    height: 110vw;
+    filter: blur(40px);
   }
 
-  .red-ambient {
+  .card-ambient-light {
     width: 100vw;
-    height: 100vw;
+    height: 75vw;
+    filter: blur(50px);
+  }
+
+  .light-streak {
+    width: 90vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mauxis-light-effect {
+    display: none;
   }
 }

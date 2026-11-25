@@ -1,0 +1,197 @@
+
+:root {
+  --mauxis-cream: #F8F3E9;
+  --mauxis-charcoal: #25211F;
+  --mauxis-red: #B33B30;
+}
+
+/* Full-screen intro */
+.mauxis-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+  background: var(--mauxis-charcoal);
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* Subtle charcoal background depth */
+.intro-background-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(
+      ellipse at 50% 50%,
+      rgba(248, 243, 233, 0.07) 0%,
+      rgba(248, 243, 233, 0.025) 32%,
+      transparent 72%
+    ),
+    var(--mauxis-charcoal);
+}
+
+/* Warm central bloom */
+.intro-center-glow {
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 50%;
+  width: min(75vw, 950px);
+  height: min(38vw, 440px);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  opacity: 0;
+  background: radial-gradient(
+    ellipse,
+    rgba(248, 243, 233, 0.22) 0%,
+    rgba(248, 243, 233, 0.10) 28%,
+    rgba(248, 243, 233, 0.035) 52%,
+    transparent 75%
+  );
+  filter: blur(55px);
+  pointer-events: none;
+}
+
+/* Horizontal light system */
+.intro-light-system {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Wide soft bloom behind the streak */
+.intro-light-glow {
+  position: absolute;
+  left: -55%;
+  top: 50%;
+  width: 75vw;
+  height: 100px;
+  transform: translateY(-50%);
+  opacity: 0;
+  border-radius: 50%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(248, 243, 233, 0.06) 18%,
+    rgba(248, 243, 233, 0.22) 42%,
+    rgba(248, 243, 233, 0.34) 50%,
+    rgba(248, 243, 233, 0.18) 65%,
+    transparent 100%
+  );
+  filter: blur(28px);
+  will-change: transform, opacity;
+}
+
+/* Bright narrow horizontal streak */
+.intro-light-beam {
+  position: absolute;
+  left: -55%;
+  top: 50%;
+  width: 72vw;
+  height: 3px;
+  transform: translateY(-50%);
+  opacity: 0;
+  border-radius: 50%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(248, 243, 233, 0.08) 18%,
+    rgba(248, 243, 233, 0.7) 40%,
+    #F8F3E9 50%,
+    rgba(248, 243, 233, 0.85) 58%,
+    rgba(248, 243, 233, 0.12) 82%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 8px rgba(248, 243, 233, 0.9),
+    0 0 22px rgba(248, 243, 233, 0.65),
+    0 0 55px rgba(248, 243, 233, 0.35);
+  filter: blur(1px);
+  will-change: transform, opacity;
+}
+
+/* Centered MAUXIS wordmark */
+.intro-logo-wrap {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.intro-wordmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mauxis-cream);
+  font-family: inherit;
+  font-size: clamp(58px, 10vw, 132px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.075em;
+  white-space: nowrap;
+  text-shadow:
+    0 0 12px rgba(248, 243, 233, 0.2),
+    0 0 35px rgba(248, 243, 233, 0.14);
+  will-change: transform, filter, opacity;
+}
+
+.intro-letter {
+  display: inline-block;
+  will-change: transform, filter, opacity;
+}
+
+/* Mauxis red accent */
+.intro-accent {
+  width: 100%;
+  height: 2px;
+  margin-top: 18px;
+  transform-origin: center;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--mauxis-red),
+    transparent
+  );
+  box-shadow: 0 0 14px rgba(179, 59, 48, 0.35);
+}
+
+/* Smaller screens */
+@media (max-width: 768px) {
+  .intro-wordmark {
+    font-size: clamp(48px, 13vw, 82px);
+  }
+
+  .intro-light-beam {
+    width: 100vw;
+  }
+
+  .intro-light-glow {
+    width: 105vw;
+  }
+
+  .intro-center-glow {
+    width: 100vw;
+    height: 65vw;
+    filter: blur(38px);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .intro-light-system {
+    display: none;
+  }
+}
