@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import MauxisLightEffect from './MauxisLightEffect';
@@ -478,17 +477,18 @@ function CinematicScenes({ start, onComplete }) {
         );
       });
 
-      // PART 4 — Six cards remain clear together
-      cards.forEach((card, index) => {
+      // PART 4 — Six cards preview without overlap
+      cards.forEach((card) => {
         master.to(
           card,
           {
-            y: index % 2 === 0 ? -12 : 12,
-            x: index % 2 === 0 ? 7 : -7,
-            rotateY: index % 2 === 0 ? 2 : -2,
-            rotateZ: index % 2 === 0 ? 1 : -1,
+            x: 0,
+            y: 0,
+            rotateX: 0,
+            rotateY: 0,
+            rotateZ: 0,
+            scale: 0.82,
             filter: 'blur(0px)',
-            scale: 1,
             duration: 0.65,
             ease: 'sine.inOut',
           },

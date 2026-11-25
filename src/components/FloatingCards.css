@@ -1,7 +1,7 @@
-
 /* =========================================
-   MAUXIS — CINEMATIC FLOATING CARDS
-   Linkme-inspired / Mauxis brand theme
+   MAUXIS CINEMATIC FLOATING CARDS
+   Centered Scattered Preview Layout
+   Cream + Charcoal + Red
 ========================================= */
 
 .floating-cards-scene {
@@ -13,7 +13,7 @@
   isolation: isolate;
   width: 100%;
   height: 100vh;
-  min-height: 650px;
+  min-height: 680px;
   overflow: hidden;
   perspective: 1600px;
 
@@ -53,6 +53,7 @@
 .floating-bg-glow {
   z-index: -4;
   inset: -25%;
+
   background:
     radial-gradient(
       ellipse at 50% 48%,
@@ -61,6 +62,7 @@
       rgba(179, 59, 48, 0.10) 42%,
       transparent 68%
     );
+
   filter: blur(32px);
   transform: scale(0.9);
 }
@@ -98,6 +100,7 @@
   left: -65%;
   width: 42%;
   height: 145%;
+
   pointer-events: none;
   opacity: 0;
   transform: skewX(-18deg);
@@ -137,8 +140,8 @@
   position: absolute;
   z-index: 0;
 
-  width: min(68vw, 850px);
-  height: min(55vw, 580px);
+  width: min(75vw, 950px);
+  height: min(65vw, 650px);
 
   border-radius: 50%;
 
@@ -164,16 +167,15 @@
   position: relative;
   z-index: 3;
 
-  width: min(1120px, 94vw);
-  height: min(650px, 82vh);
+  width: min(1120px, 96vw);
+  height: min(680px, 92vh);
 
   margin: 0 auto;
-
   transform-style: preserve-3d;
 }
 
 /* =========================================
-   BASE SERVICE CARD
+   BASE CARD
 ========================================= */
 
 .floating-service-card {
@@ -183,22 +185,24 @@
 
   box-sizing: border-box;
 
-  width: clamp(250px, 27vw, 350px);
-  min-height: 265px;
-  padding: 17px;
+  width: 280px;
+  height: 260px;
+  min-height: 260px;
 
-  border: 1px solid rgba(255, 255, 255, 0.88);
+  padding: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.92);
   border-radius: 19px;
 
-  background: rgba(255, 254, 250, 0.94);
+  background: #FFFEFA;
 
   box-shadow:
-    0 30px 75px rgba(37, 33, 31, 0.15),
-    0 10px 28px rgba(67, 48, 37, 0.08),
-    0 0 35px rgba(255, 255, 255, 0.48);
+    0 24px 55px rgba(37, 33, 31, 0.14),
+    0 8px 22px rgba(67, 48, 37, 0.07),
+    0 0 25px rgba(255, 255, 255, 0.42);
 
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 
   overflow: hidden;
   isolation: isolate;
@@ -218,47 +222,52 @@
 }
 
 /* =========================================
-   SIX CARDS — BALANCED CENTER COMPOSITION
+   SIX CARDS
+   SCATTERED AROUND THE CENTER
+   NOT A GRID
 ========================================= */
+
+/* Six cards — scattered around the center without overlapping.
+   The GSAP preview scale is 0.82, so each card has a visible gap. */
 
 .floating-service-card:nth-child(1) {
   z-index: 6;
-  margin-left: -240px;
-  margin-top: -250px;
+  margin-left: -140px;
+  margin-top: -345px;
 }
 
 .floating-service-card:nth-child(2) {
-  z-index: 4;
-  margin-left: -40px;
-  margin-top: -270px;
+  z-index: 5;
+  margin-left: 120px;
+  margin-top: -237.5px;
 }
 
 .floating-service-card:nth-child(3) {
-  z-index: 5;
-  margin-left: -390px;
-  margin-top: -100px;
+  z-index: 4;
+  margin-left: 120px;
+  margin-top: -22.5px;
 }
 
 .floating-service-card:nth-child(4) {
   z-index: 3;
-  margin-left: 80px;
-  margin-top: -100px;
+  margin-left: -140px;
+  margin-top: 85px;
 }
 
 .floating-service-card:nth-child(5) {
   z-index: 2;
-  margin-left: -190px;
-  margin-top: 10px;
+  margin-left: -400px;
+  margin-top: -22.5px;
 }
 
 .floating-service-card:nth-child(6) {
   z-index: 7;
-  margin-left: 20px;
-  margin-top: -10px;
+  margin-left: -400px;
+  margin-top: -237.5px;
 }
 
 /* =========================================
-   SMALL HEADING INSIDE CARD
+   CARD HEADING
 ========================================= */
 
 .floating-card-heading {
@@ -268,15 +277,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 8px;
 
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 
   color: var(--charcoal);
 
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 800;
-  letter-spacing: 1.4px;
+  letter-spacing: 1.1px;
   text-transform: uppercase;
 
   will-change: transform, opacity, filter;
@@ -284,11 +293,12 @@
 
 .floating-card-heading span:last-child {
   color: var(--red);
-  font-size: 10px;
+  font-size: 9px;
+  white-space: nowrap;
 }
 
 /* =========================================
-   DASHBOARD VISUALS
+   DASHBOARD CONTENT
 ========================================= */
 
 .floating-service-card .service-visual {
@@ -297,7 +307,11 @@
 
   width: 100%;
   max-width: 100%;
-  margin-top: 10px;
+  min-width: 0;
+
+  margin-top: 8px;
+
+  overflow: hidden;
 
   opacity: 1;
   visibility: visible;
@@ -310,21 +324,25 @@
 
   width: 100%;
   max-width: 100%;
-  min-height: 220px;
+  min-height: 195px;
 
-  padding: 17px;
+  padding: 13px;
 
   border: 0;
   border-radius: 12px;
 
-  background: rgba(248, 243, 233, 0.88);
+  background: var(--cream);
 
   box-shadow: none;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .floating-service-card .visual-topbar {
-  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
 }
 
 .floating-service-card .analytics-visual,
@@ -333,7 +351,7 @@
 .floating-service-card .creator-visual,
 .floating-service-card .ads-visual,
 .floating-service-card .crm-visual {
-  min-height: 220px;
+  min-height: 195px;
 }
 
 /* =========================================
@@ -352,7 +370,7 @@
   background:
     linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.62),
+      rgba(255, 255, 255, 0.65),
       transparent 25%,
       transparent 72%,
       rgba(179, 59, 48, 0.07)
@@ -420,33 +438,27 @@
 }
 
 /* =========================================
-   LARGE LINKME-STYLE SERVICE HEADING
-   M-AUXIS WARM GRADIENT
+   LARGE SHOWCASE HEADING
 ========================================= */
 
 .floating-showcase-title {
   position: absolute;
   z-index: 20;
 
-  top: 6%;
+  top: 9%;
   left: 50%;
 
-  width: 94%;
+  width: 95%;
   text-align: center;
 
   transform: translateX(-50%);
 
-  font-family:
-    "Inter",
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
 
-  font-size: clamp(48px, 7vw, 86px);
+  font-size: clamp(54px, 8vw, 100px);
   font-weight: 400;
-
-  line-height: 1.08;
-  letter-spacing: -0.06em;
+  line-height: 1;
+  letter-spacing: -0.065em;
 
   background:
     linear-gradient(
@@ -467,23 +479,21 @@
   opacity: 0;
 
   filter:
-    drop-shadow(
-      0 5px 15px rgba(179, 59, 48, 0.10)
-    );
+    drop-shadow(0 5px 15px rgba(179, 59, 48, 0.10));
 
   will-change: transform, opacity, filter;
 }
 
 /* =========================================
-   INDIVIDUAL CARD SHOWCASE
+   SINGLE CARD SHOWCASE
 ========================================= */
 
 .floating-service-card.showcase-active {
-  width: min(76vw, 820px);
+  width: min(68vw, 760px);
+  height: auto;
+  min-height: 390px;
 
-  min-height: 420px;
-  padding: 24px;
-
+  padding: 28px;
   margin: 0 !important;
 
   border-radius: 23px;
@@ -494,7 +504,7 @@
   z-index: 50 !important;
 
   border-color: rgba(255, 255, 255, 0.98);
-  background: rgba(255, 254, 250, 0.97);
+  background: #FFFEFA;
 
   box-shadow:
     0 35px 95px rgba(37, 33, 31, 0.20),
@@ -509,7 +519,8 @@
   letter-spacing: 1.7px;
 }
 
-.floating-service-card.showcase-active .floating-card-heading span:last-child {
+.floating-service-card.showcase-active
+.floating-card-heading span:last-child {
   font-size: 11px;
 }
 
@@ -517,12 +528,14 @@
   width: 100%;
   max-width: 100%;
   margin-top: 16px;
+  overflow: visible;
 }
 
 .floating-service-card.showcase-active .visual-card {
   width: 100%;
   max-width: 100%;
   min-height: 245px;
+
   padding: 22px;
   border-radius: 15px;
 }
@@ -539,7 +552,7 @@
 }
 
 /* =========================================
-   HOVER EFFECT
+   HOVER
 ========================================= */
 
 .floating-service-card:hover {
@@ -575,52 +588,56 @@
 @media (max-width: 900px) {
   .floating-cards-layer {
     width: 96vw;
-    height: 78vh;
+    height: 650px;
   }
 
   .floating-service-card {
-    width: 280px;
+    width: 245px;
+    height: 220px;
+    min-height: 220px;
+    padding: 12px;
   }
 
   .floating-service-card:nth-child(1) {
-    margin-left: -190px;
-    margin-top: -220px;
+    margin-left: -122.5px;
+    margin-top: -300px;
   }
 
   .floating-service-card:nth-child(2) {
-    margin-left: 0;
-    margin-top: -230px;
+    margin-left: 97.5px;
+    margin-top: -205px;
   }
 
   .floating-service-card:nth-child(3) {
-    margin-left: -300px;
-    margin-top: -60px;
+    margin-left: 97.5px;
+    margin-top: -15px;
   }
 
   .floating-service-card:nth-child(4) {
-    margin-left: 20px;
-    margin-top: -60px;
+    margin-left: -122.5px;
+    margin-top: 80px;
   }
 
   .floating-service-card:nth-child(5) {
-    margin-left: -180px;
-    margin-top: 100px;
+    margin-left: -342.5px;
+    margin-top: -15px;
   }
 
   .floating-service-card:nth-child(6) {
-    margin-left: 0;
-    margin-top: 110px;
-  }
-
-  .floating-showcase-title {
-    top: 6%;
-    font-size: clamp(44px, 8vw, 68px);
+    margin-left: -342.5px;
+    margin-top: -205px;
   }
 
   .floating-service-card.showcase-active {
-    width: 84vw;
+    width: min(82vw, 680px);
+    height: auto;
     min-height: 350px;
-    padding: 20px;
+    padding: 23px;
+  }
+
+  .floating-showcase-title {
+    top: 7%;
+    font-size: clamp(46px, 8vw, 82px);
   }
 }
 
@@ -630,88 +647,93 @@
 
 @media (max-width: 600px) {
   .floating-cards-scene {
-    min-height: 620px;
+    min-height: 640px;
   }
 
   .floating-cards-layer {
     width: 100%;
     height: 520px;
-    transform: none;
   }
 
   .floating-service-card {
-    width: 210px;
-    min-height: 220px;
-    padding: 12px;
-    border-radius: 15px;
+    width: 190px;
+    height: 190px;
+    min-height: 190px;
+    padding: 10px;
   }
 
   .floating-service-card:nth-child(1) {
-    margin-left: -115px;
-    margin-top: -205px;
+    margin-left: -175px;
+    margin-top: -275px;
   }
 
   .floating-service-card:nth-child(2) {
-    margin-left: 5px;
-    margin-top: -205px;
+    margin-left: -15px;
+    margin-top: -275px;
   }
 
   .floating-service-card:nth-child(3) {
-    margin-left: -225px;
-    margin-top: -25px;
+    margin-left: -15px;
+    margin-top: -95px;
   }
 
   .floating-service-card:nth-child(4) {
-    margin-left: 15px;
-    margin-top: -25px;
+    margin-left: -15px;
+    margin-top: 85px;
   }
 
   .floating-service-card:nth-child(5) {
-    margin-left: -115px;
-    margin-top: 145px;
+    margin-left: -175px;
+    margin-top: 85px;
   }
 
   .floating-service-card:nth-child(6) {
-    margin-left: 5px;
-    margin-top: 145px;
+    margin-left: -175px;
+    margin-top: -95px;
+  }
+
+  .floating-card-heading {
+    gap: 4px;
+    margin-bottom: 8px;
+    font-size: 8px;
+    letter-spacing: 0.6px;
+  }
+
+  .floating-card-heading span:last-child {
+    font-size: 7px;
+  }
+
+  .floating-service-card .visual-card {
+    min-height: 150px;
+    padding: 8px;
+  }
+
+  .floating-service-card .visual-topbar {
+    font-size: 8px;
   }
 
   .floating-showcase-title {
-    top: 7%;
-    width: 96%;
+    top: 8%;
+    width: 100%;
     padding: 0 12px;
     box-sizing: border-box;
 
-    font-size: clamp(36px, 9vw, 52px);
+    font-size: clamp(36px, 10vw, 56px);
     letter-spacing: -0.055em;
-
     white-space: normal;
   }
 
   .floating-service-card.showcase-active {
     width: 92vw;
+    height: auto;
     min-height: 300px;
-    padding: 15px;
+    padding: 16px;
     border-radius: 17px;
-  }
-
-  .floating-service-card.showcase-active .floating-card-heading {
-    font-size: 10px;
-    margin-bottom: 12px;
-  }
-
-  .floating-service-card.showcase-active .service-visual {
-    margin-top: 10px;
   }
 
   .floating-service-card.showcase-active .visual-card {
     padding: 13px;
     min-height: 210px;
-  }
-
-  .floating-card-heading {
-    font-size: 9px;
-    letter-spacing: 1px;
   }
 
   .floating-scene-label {
