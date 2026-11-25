@@ -352,7 +352,6 @@ function CinematicScenes({ start, onComplete }) {
         card.querySelector('.card-light-sweep')
       );
 
-      // INITIAL STATE
       gsap.set(cards, {
         autoAlpha: 0,
         x: 0,
@@ -507,7 +506,7 @@ function CinematicScenes({ start, onComplete }) {
         2.25
       );
 
-      // PART 5 — One card at a time, center position
+      // PART 5 — One card at a time, centered
       const showStart = 3.1;
       const cardInterval = 1.55;
 
@@ -517,7 +516,6 @@ function CinematicScenes({ start, onComplete }) {
         const visual = visuals[index];
         const light = cardLights[index];
 
-        // Hide all cards before showing selected card
         master.set(
           cards,
           {
@@ -527,7 +525,6 @@ function CinematicScenes({ start, onComplete }) {
           showTime
         );
 
-        // Hide the previous large heading
         master.set(
           showcaseTitle,
           {
@@ -538,7 +535,6 @@ function CinematicScenes({ start, onComplete }) {
           showTime
         );
 
-        // Change heading to current service name
         master.call(
           () => {
             showcaseTitle.textContent = services[index].name;
@@ -547,7 +543,6 @@ function CinematicScenes({ start, onComplete }) {
           showTime
         );
 
-        // Activate only the selected card
         master.call(
           () => {
             cards.forEach((item) =>
@@ -559,12 +554,12 @@ function CinematicScenes({ start, onComplete }) {
           showTime
         );
 
-        // Center the selected card
+        // Keep each solo card centered, with space for its title above
         master.set(
           card,
           {
             left: '50%',
-            top: '50%',
+            top: '60%',
             marginLeft: 0,
             marginTop: 0,
             xPercent: -50,
@@ -582,7 +577,6 @@ function CinematicScenes({ start, onComplete }) {
           showTime
         );
 
-        // Card entrance
         master.to(
           card,
           {
@@ -593,7 +587,6 @@ function CinematicScenes({ start, onComplete }) {
           showTime
         );
 
-        // Large Linkme-style heading reveal
         master.to(
           showcaseTitle,
           {
@@ -606,7 +599,6 @@ function CinematicScenes({ start, onComplete }) {
           showTime + 0.12
         );
 
-        // Small heading inside the dashboard card
         master.fromTo(
           heading,
           {
@@ -623,7 +615,6 @@ function CinematicScenes({ start, onComplete }) {
           showTime + 0.15
         );
 
-        // Dashboard reveal
         master.fromTo(
           visual,
           {
@@ -642,7 +633,7 @@ function CinematicScenes({ start, onComplete }) {
           showTime + 0.3
         );
 
-        // Warm light streak crosses the card
+        // Warm light sweep across the selected card
         master.fromTo(
           light,
           {
@@ -667,7 +658,6 @@ function CinematicScenes({ start, onComplete }) {
           showTime + 0.75
         );
 
-        // Warm card glow
         master.to(
           card,
           {
@@ -686,7 +676,6 @@ function CinematicScenes({ start, onComplete }) {
 
       const exitTime = finalShowTime + 1.1;
 
-      // Hide large heading with final card
       master.to(
         showcaseTitle,
         {
@@ -758,7 +747,6 @@ function CinematicScenes({ start, onComplete }) {
       <div className="floating-center-glow" />
       <div className="floating-light-sweep" />
 
-      {/* Large Linkme-style service heading */}
       <div className="floating-showcase-title">
         Analytics Hub
       </div>
