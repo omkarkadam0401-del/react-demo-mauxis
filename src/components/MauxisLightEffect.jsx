@@ -13,26 +13,32 @@ export default function MauxisLightEffect() {
     const ctx = gsap.context(() => {
       const ambient = root.querySelector('.ambient-light');
       const cardGlow = root.querySelector('.card-ambient-light');
-      const streaks = gsap.utils.toArray('.light-streak');
-      const particles = gsap.utils.toArray('.light-particle');
 
-      gsap.to(ambient, {
-        scale: 1.3,
-        opacity: 0.85,
-        duration: 3,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-      });
+      // IMPORTANT: select elements only inside this component
+      const streaks = root.querySelectorAll('.light-streak');
+      const particles = root.querySelectorAll('.light-particle');
 
-      gsap.to(cardGlow, {
-        scale: 1.25,
-        opacity: 0.8,
-        duration: 2.5,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-      });
+      if (ambient) {
+        gsap.to(ambient, {
+          scale: 1.3,
+          opacity: 0.85,
+          duration: 3,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+        });
+      }
+
+      if (cardGlow) {
+        gsap.to(cardGlow, {
+          scale: 1.25,
+          opacity: 0.8,
+          duration: 2.5,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+        });
+      }
 
       streaks.forEach((streak, index) => {
         gsap.fromTo(
@@ -73,7 +79,11 @@ export default function MauxisLightEffect() {
   }, []);
 
   return (
-    <div className="mauxis-light-effect" ref={rootRef} aria-hidden="true">
+    <div
+      className="mauxis-light-effect"
+      ref={rootRef}
+      aria-hidden="true"
+    >
       <div className="ambient-light" />
       <div className="card-ambient-light" />
 
